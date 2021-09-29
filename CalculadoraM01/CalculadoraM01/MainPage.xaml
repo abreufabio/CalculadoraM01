@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CalculadoraM01.MainPage"
+             BackgroundColor="Black"
+             Title="Calculadora">
+
+    <Grid RowSpacing="10" ColumnSpacing="10" Margin="10,10,10,10">
+        <!--Primeira Label = Calculos completos-->
+        <Label BackgroundColor="Transparent" x:Name="ResultSet" 
+               Grid.Row="0"
+               Grid.Column="0" Grid.ColumnSpan="4"
+               TextColor="DarkGreen" FontSize="25"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"/>
+        
+        <!--Segunda Label Calculos-->
+        <Label BackgroundColor="Transparent" x:Name="ResultSet02"
+               Grid.Row="1" Grid.RowSpan="2"
+               Grid.Column="0" Grid.ColumnSpan="4"
+               Margin="0,10,0,0"
+               TextColor="DarkGreen" FontSize="40"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"/>
+        
+        <!--Primeira linha de Números 7, 8, 9 e + -->
+        <Button Text="7" FontSize="20"
+                Grid.Row="3" Grid.Column="0"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+        
+        <Button Text="8" FontSize="20"
+                Grid.Row="3" Grid.Column="1"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="9" FontSize="20"
+                Grid.Row="3" Grid.Column="2"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="+" FontSize="20"
+                Grid.Row="3" Grid.Column="3"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Margin="10,0,0,0"
+                Clicked="SelectOperator"/>
+
+
+        <!--Segunda linha de Números 4, 5, 6 e -(Menos) -->
+        <Button Text="4" FontSize="20"
+                Grid.Row="4" Grid.Column="0"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="5" FontSize="20"
+                Grid.Row="4" Grid.Column="1"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="6" FontSize="20"
+                Grid.Row="4" Grid.Column="2"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="-" FontSize="20"
+                Grid.Row="4" Grid.Column="3"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Margin="10,0,0,0"
+                Clicked="SelectOperator"/>
+
+        <!--Terceira linha de Números 1, 2, 3 e x(Vezes) -->
+        <Button Text="1" FontSize="20"
+                Grid.Row="5" Grid.Column="0"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="2" FontSize="20"
+                Grid.Row="5" Grid.Column="1"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="3" FontSize="20"
+                Grid.Row="5" Grid.Column="2"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="x" FontSize="20"
+                Grid.Row="5" Grid.Column="3"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Margin="10,0,0,0" 
+                Clicked="SelectOperator"/>
+
+        <!--Ultima linha de Números 0, /, C(Limpar), = -->
+        <Button Text="0" FontSize="20"
+                Grid.Row="6" Grid.Column="0"
+                Grid.ColumnSpan="2"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="SelectedNumber"/>
+
+        <Button Text="C" FontSize="20"
+                Grid.Row="6" Grid.Column="2"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="limpar"/>
+
+        <Button Text="/" FontSize="20"
+                Grid.Row="6" Grid.Column="3"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Margin="10,0,0,0"
+                Clicked="SelectOperator"/>
+
+        <Button Text="=" FontSize="20"
+                Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4"
+                TextColor="DarkGreen" FontAttributes="Bold" 
+                BackgroundColor="DarkGray" CornerRadius="0"
+                Clicked="OnCalculate"/>
+        
+        <!--Linha das configurações das linhas-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        
+        <!--Linha de configurações das Colunas-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+    </Grid>
+
+</ContentPage>
